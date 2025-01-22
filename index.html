@@ -13,6 +13,29 @@
     <link rel="apple-touch-icon" href="icons/icon192.png" />
     <title>Leeds Trinity Dashboard</title>
     <link rel="stylesheet" href="res/styles.css" />
+
+    <script>
+      // Add ripple effect on mobile touch
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".card").forEach((card) => {
+          card.addEventListener("touchstart", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.touches[0].clientX - rect.left;
+            const y = e.touches[0].clientY - rect.top;
+
+            card.style.setProperty("--x", `${x}px`);
+            card.style.setProperty("--y", `${y}px`);
+            card.classList.add("ripple");
+          });
+
+          card.addEventListener("touchend", () => {
+            setTimeout(() => {
+              card.classList.remove("ripple");
+            }, 300); // Match the transition duration
+          });
+        });
+      });
+    </script>
   </head>
   <body>
     <div class="container">
@@ -25,7 +48,7 @@
         <!-- Main Website -->
         <a
           href="https://www.leedstrinity.ac.uk"
-          class="card main-card"
+          class="card main-card ripple"
           target="_blank"
         >
           <div class="card-title">University Portal</div>

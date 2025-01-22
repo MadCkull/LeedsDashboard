@@ -28,7 +28,14 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Segoe UI", system-ui, sans-serif;
-  user-select: none;
+
+  -webkit-tap-highlight-color: transparent; /* Removes tap highlight on iOS */
+  -webkit-touch-callout: none; /* Disables callout on long press */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version */
 }
 
 body {
@@ -129,6 +136,7 @@ body::before {
   height: fit-content;
   min-height: 200px;
   box-shadow: var(--glass-shadow);
+  overflow: hidden;
 }
 
 .card::after {
@@ -162,6 +170,25 @@ body::before {
 
 .card:hover::before {
   opacity: 0.3;
+}
+
+.card.ripple::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--x) var(--y),
+    rgba(247, 72, 82, 0.3) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.card.ripple:active::after {
+  opacity: 1;
 }
 
 .card-title {
@@ -225,6 +252,19 @@ body::before {
   min-height: 150px;
 }
 
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes ripple {
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -259,6 +299,25 @@ body::before {
     min-height: 160px;
     padding: 1rem;
     height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Remove hover effects */
+  .card:hover {
+    transform: none;
+    box-shadow: var(--glass-shadow);
+  }
+
+  /* Button specific touch feedback */
+  .btn-extra:active {
+    transform: scale(0.95);
+    background: linear-gradient(135deg, var(--neutral-50), var(--neutral-100));
+  }
+
+  .card:active {
+    transform: scale(0.98);
+    background: var(--neutral-100);
+    border-color: var(--primary-100);
   }
 
   .card-title {
