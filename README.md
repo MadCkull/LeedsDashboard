@@ -8,6 +8,8 @@
   ### [✨ Live Preview](https://madckull.github.io/LeedsDashboard/)
   
   *A modern web dashboard for quick access to Leeds Trinity University services*
+
+  <img src="/res/LeedsDashboardPreview.png" alt="Leeds Dashboard Preview" />
 </div>
 
 ## Overview
@@ -51,10 +53,6 @@ git clone https://github.com/MadCkull/LeedsDashboard.git
 # Open in your preferred browser
 # No build process required!
 ```
-
-## 📱 Screenshots
-
-<img src="/res/LeedsDashboardPreview.png" alt="Leeds Dashboard Preview" />
 
 ## 📄 License
 
