@@ -1,13 +1,13 @@
 # Leeds Trinity University Dashboard 🎓
 
 <div align="center">
-  <a href="https://madckull.github.io/LeedsDashboard/">
-    <img src="preview.gif" alt="Dashboard Live Demo" width="600"/>
-  </a>
   
-  ### [✨ Live Preview](https://madckull.github.io/LeedsDashboard/)
   
   *A modern web dashboard for quick access to Leeds Trinity University services*
+  <a href="https://madckull.github.io/LeedsDashboard/">
+    <img src="preview.gif" alt="Dashboard Live Demo" width="600"/>
+  </a> 
+  ### [✨ Live Preview](https://madckull.github.io/LeedsDashboard/)
 
   <img src="/res/LeedsDashboardPreview.png" alt="Leeds Dashboard Preview" />
 </div>
